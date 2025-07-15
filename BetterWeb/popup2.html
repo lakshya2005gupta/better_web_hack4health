@@ -1,0 +1,369 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>BetterWeb Popup</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Comic Neue', cursive;
+      background-color: #fff0fa;
+      width: 240px;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 16px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #d36ba1;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.6rem 0;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn-enable {
+      background-color: #81c784;
+    }
+    .btn-enable:hover {
+      background-color: #66bb6a;
+    }
+
+    .btn-disable {
+      background-color: #e57373;
+    }
+    .btn-disable:hover {
+      background-color: #ef5350;
+    }
+
+    .btn-settings {
+      background-color: #64b5f6;
+    }
+    .btn-settings:hover {
+      background-color: #42a5f5;
+    }
+  </style>
+</head>
+<body>
+    <img src="cloud.png" width="50" alt="Cute Cloud Icon" />
+    <h2>🌸 BetterWeb 💖</h2>
+  
+    <button class="btn btn-enable" id="enableBtn">✨ Enable</button>
+    <button class="btn btn-disable" id="disableBtn">🚫 Disable</button>
+    <button class="btn btn-settings" id="openOptions">⚙️ Settings</button>
+
+  <input type="text" id="userCommand" placeholder="Change Page Contents..." style="margin: 0.5rem 0; padding: 0.4rem; width: 100%; background-color: transparent; border-radius: 20px; border-color: #42a5f5; height: 45px;">
+  <button class="btn btn-settings" id="sendCommand">Send</button>
+
+  <script src="popup.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>BetterWeb Popup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Comic Neue', cursive;
+      background-color: #fff0fa;
+      width: 240px;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 16px;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      color: #d36ba1;
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.6rem 0;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.2s ease-in-out;
+    }
+    
+    .btn-enable {
+      background-color: #81c784;
+    }
+    .btn-enable:hover {
+      background-color: #66bb6a;
+    }
+    
+    .btn-disable {
+      background-color: #e57373;
+    }
+    .btn-disable:hover {
+      background-color: #ef5350;
+    }
+    
+    .btn-settings {
+      background-color: #64b5f6;
+    }
+    .btn-settings:hover {
+      background-color: #42a5f5;
+    }
+    
+    .btn-agent {
+      background-color: #9575cd; /* Purple for AI */
+    }
+    .btn-agent:hover {
+      background-color: #7e57c2;
+    }
+    
+    .input-container {
+      margin-top: 1rem;
+      display: none; /* Hidden by default */
+    }
+    
+    .agent-input {
+      width: 100%;
+      padding: 0.4rem;
+      border-radius: 20px;
+      border: 1px solid #9575cd;
+      background-color: transparent;
+      margin-bottom: 0.5rem;
+      height: 45px;
+    }
+    
+    .status {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      color: #d36ba1;
+    }
+
+
+    /* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  } */
+  
+  .chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .chat-btn {
+    background-color: #6b21a8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .chat-btn:hover {
+    background-color: #7e22ce;
+  }
+  
+  .chat-window {
+    width: 320px;
+    background: linear-gradient(to bottom right, #4c1d95, #6b21a8);
+    color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #9333ea;
+  }
+  
+  .chat-header button {
+    background: none;
+    border: none;
+    color: #ddd;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .chat-header button:hover {
+    color: white;
+  }
+  
+  .chat-messages {
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .chat-message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  .user-message {
+    background-color: #9333ea;
+    align-self: flex-end;
+  }
+  
+  .bot-message {
+    background-color: #1f1f1f;
+    align-self: flex-start;
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #9333ea;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background-color: #5b21b6;
+    color: white;
+  }
+  
+  .chat-input button {
+    margin-left: 10px;
+    background-color: #7e22ce;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .chat-input button:hover {
+    background-color: #9333ea;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #mic-btn {
+    background-color: #5b21b6;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #mic-btn:hover {
+    background-color: #9333ea;
+  }
+  
+
+  </style>
+</head>
+<body>
+  <img src="cloud.png" width="50" alt="Cute Cloud Icon" />
+  <h2>🌸 BetterWeb 💖</h2>
+  
+  <button class="btn btn-enable" id="enableBtn">✨ Enable</button>
+  <button class="btn btn-disable" id="disableBtn">🚫 Disable</button>
+  <button class="btn btn-settings" id="openOptions">⚙️ Settings</button>
+
+  <input type="text" id="userCommand" placeholder="Change Page Contents..." style="margin: 0.5rem 0; padding: 0.4rem; width: 100%; background-color: transparent; border-radius: 20px; border-color: #42a5f5; height: 45px;">
+  <button class="btn btn-settings" id="sendCommand">Send</button>
+
+  <button class="btn btn-agent" id="aiAgentBtn">🤖 AI Agent</button>
+  
+  <div class="input-container" id="agentInputContainer">
+    <input type="text" class="agent-input" id="agentCommand" placeholder="What would you like the AI to do?">
+    <button class="btn btn-agent" id="runAgentBtn">🚀 Run Agent</button>
+    <div class="status" id="agentStatus"></div>
+  </div>
+
+  <div id="chatbot-container" class="chatbot-container">
+    <!-- Chat Icon Button -->
+    <button id="open-btn" class="chat-btn">
+      🤖
+    </button>
+
+    <!-- Chat Window -->
+    <div id="chat-window" class="chat-window hidden">
+      <div class="chat-header">
+        <h2>BetterWeb ChatBot</h2>
+        <button id="close-btn">✖</button>
+      </div>
+
+      <div id="chat-messages" class="chat-messages"></div>
+
+      <!-- <div class="chat-input">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask me anything..."
+        />
+        <button id="mic-btn" title="Speak your message">🎤</button>
+        <button id="send-btn">➤</button>
+      </div> -->
+
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask me anything..." />
+        <button id="mic-btn" title="Speak your message">🎤</button>
+        <button id="send-btn">➤</button>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+
+
+  
+  <script src="popup.js"></script>
+</body>
+</html>

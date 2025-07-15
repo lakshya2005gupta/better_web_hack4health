@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>BetterWeb Popup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff0fa;
+      width: 280px;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 16px;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      color: #d36ba1;
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.6rem 0;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    .btn-enable {
+      background-color: #81c784;
+    }
+    .btn-enable:hover {
+      background-color: #66bb6a;
+    }
+    
+    .btn-disable {
+      background-color: #e57373;
+    }
+    .btn-disable:hover {
+      background-color: #ef5350;
+    }
+    
+    .btn-settings {
+      background-color: #64b5f6;
+    }
+    .btn-settings:hover {
+      background-color: #42a5f5;
+    }
+    
+    .btn-agent {
+      background-color: #9575cd;
+    }
+    .btn-agent:hover {
+      background-color: #7e57c2;
+    }
+    
+    .input-container {
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    .agent-input, #userCommand {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #d4a6ff;
+      background-color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.2s;
+    }
+    
+    .agent-input:focus, #userCommand:focus {
+      outline: none;
+      border-color: #9575cd;
+      box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.3);
+    }
+    
+    .status {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      color: #d36ba1;
+    }
+    
+    /* Chatbot styles */
+    .chat-section {
+      margin-top: 1.5rem;
+      border-top: 1px dashed #d36ba1;
+      padding-top: 1rem;
+    }
+    
+    .chat-window {
+      width: 100%;
+      background: linear-gradient(to bottom right, #4c1d95, #6b21a8);
+      color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      margin-top: 0.5rem;
+    }
+    
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #9333ea;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .chat-header h2 {
+      font-size: 1rem;
+      margin: 0;
+      color: white;
+    }
+    
+    .chat-header button {
+      background: none;
+      border: none;
+      color: #ddd;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    .chat-header button:hover {
+      color: white;
+    }
+    
+    .chat-messages {
+      padding: 15px;
+      height: 200px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .chat-message {
+      max-width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      word-break: break-word;
+    }
+    
+    .user-message {
+      background-color: #9333ea;
+      align-self: flex-end;
+    }
+    
+    .bot-message {
+      background-color: #1f1f1f;
+      align-self: flex-start;
+    }
+    
+    .chat-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #9333ea;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .chat-input input {
+      flex: 1;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background-color: #5b21b6;
+      color: white;
+    }
+    
+    .chat-input input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .chat-input button {
+      margin-left: 6px;
+      background-color: #7e22ce;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .chat-input button:hover {
+      background-color: #9333ea;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    #mic-btn {
+      background-color: #5b21b6;
+    }
+    
+    #mic-btn:hover {
+      background-color: #9333ea;
+    }
+    
+    .logo {
+      margin-bottom: 0.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+  <img src="cloud.png" width="50" alt="Cute Cloud Icon" class="logo" />
+  <h2>🌸 BetterWeb 💖</h2>
+  
+  <button class="btn btn-enable" id="enableBtn">✨ Enable</button>
+  <button class="btn btn-disable" id="disableBtn">🚫 Disable</button>
+  <button class="btn btn-settings" id="openOptions">⚙️ Settings</button>
+
+  <input type="text" id="userCommand" placeholder="Change Page Contents...">
+  <button class="btn btn-settings" id="sendCommand">Send</button>
+
+  <button class="btn btn-agent" id="aiAgentBtn">🤖 AI Agent</button>
+  
+  <div class="input-container" id="agentInputContainer">
+    <input type="text" class="agent-input" id="agentCommand" placeholder="What would you like the AI to do?">
+    <button class="btn btn-agent" id="runAgentBtn">🚀 Run Agent</button>
+    <div class="status" id="agentStatus"></div>
+  </div>
+
+  <!-- Integrated Chat Section -->
+  <div class="chat-section">
+    <h2>💬 BetterWeb Assistant</h2>
+    <div id="chat-window" class="chat-window">
+      <div class="chat-header">
+        <h2>BetterWeb ChatBot</h2>
+        <button id="minimize-btn">➖</button>
+      </div>
+
+      <div id="chat-messages" class="chat-messages"></div>
+
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask me anything..." />
+        <button id="mic-btn" title="Speak your message">🎤</button>
+        <button id="send-btn">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
