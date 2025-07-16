@@ -1,0 +1,177 @@
+/* ========== UPDATED POPUP CSS ========== */
+/* ========== IMPROVED POPUP CSS ========== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f8f0f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.popup-card {
+  width: 300px;
+  background: #fff0f6;
+  padding: 20px 24px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.better-web-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cloud-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.better-web-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #d15ea6;
+}
+
+h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 22px;
+  background: #ccc;
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+input[type="checkbox"]:checked {
+  background: #d680b1;
+}
+
+input[type="checkbox"]:checked::before {
+  left: 20px;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+  appearance: none;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d680b1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+span {
+  font-size: 13px;
+  color: #555;
+}
+
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: white;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.apply-button {
+  background-color: #8bd199;
+  color: white;
+}
+
+.apply-button:hover {
+  background-color: #75be85;
+}
+
+.reset-button {
+  background-color: #f58ca7;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #e26f91;
+}
+
+.speech-toggle-button {
+  background-color: #7fb8e8;
+  color: white;
+}
+
+.speech-toggle-button:hover {
+  background-color: #67a4d4;
+}
+
+.flower,
+.heart {
+  font-size: 18px;
+}
+
+
+

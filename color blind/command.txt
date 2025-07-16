@@ -1,0 +1,15 @@
+Available voice commands for EduAdapt Accessibility Reader:
+
+- "Enable dyslexia"
+- "Disable dyslexia"
+- "Increase font size"
+- "Decrease font size"
+- "Increase spacing"
+- "Decrease spacing"
+- "Color blindness off" or "Turn off color blindness"
+- "Protanopia"
+- "Deuteranopia"
+- "Tritanopia"
+- "Achromatopsia"
+
+Use these commands by clicking the "Toggle Mode by Voice" button in the extension popup and speaking the command clearly.
