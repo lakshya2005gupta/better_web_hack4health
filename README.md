@@ -2,7 +2,7 @@ BetterWeb – Adaptation Made Easy
 A powerful Chrome extension designed to make the internet more accessible for users with ADHD, dyslexia, sensory sensitivities, visual impairments, and other cognitive conditions.
 
 ##  Tagline
-**Adaptation Made Easy.** Personalize the web in real time with AI-powered accessibility.
+**Adaptation Made Easy.**Personalise the web in real-time with AI-powered accessibility. **
 
 ---
 
@@ -19,14 +19,14 @@ The web today isn’t built for everyone. Millions of users with cognitive and s
 
 
 ##  Our Solution
-**BetterWeb** is a Chrome extension that empowers users to personalize their browsing experience using AI-driven accessibility tools. Whether it’s reducing sensory overload, enabling voice control, or adjusting visuals, BetterWeb adapts websites to each user’s needs.
+**BetterWeb** is a Chrome extension that empowers users to personalise their browsing experience using AI-driven accessibility tools. Whether it’s reducing sensory overload, enabling voice control, or adjusting visuals, BetterWeb adapts websites to each user’s needs.
 
 
 
 ## 🌟 Key Features
 
 ###  Accessibility Profile Setup
-Upon installation, users complete a simple 3-step form to specify disabilities/preferences (e.g. ADHD, dyslexia).
+Upon installation, users complete a simple three-step form to specify their disabilities/preferences (e.g., ADHD, dyslexia).
 
 ###  Text-to-Speech (TTS)
 Highlight text and right-click to have it read aloud.
@@ -49,7 +49,7 @@ Natural language chatbot to guide users, trigger features, or explain tools—al
 
 
 ### 🖼️ AI-Based Image Color Correction *(Prototype Phase)*
-Uses generative AI to adapt image contrast for various types of color blindness.
+Uses generative AI to adapt image contrast for various types of colour blindness.
 
 ### 🕹️ Motion Sensitivity Support
 Voice command and head-tracking (using TensorFlow.js / MediaPipe) for hands-free navigation.
@@ -60,7 +60,7 @@ Auto-adaptive UI based on a user’s profile, offering inclusive course delivery
 ---
 
 ##  Tech Stack
--**Ai Agent -> streamlit,web scraping using ChatGenerative Embeddings , GoogleGenerative Ai, BrwoserUse
+-**Ai Agent -> streamlit,web scraping using ChatGenerative Embeddings, GoogleGenerative Ai, BrwoserUse
 - **Frontend:** HTML, CSS, JavaScript, React.js, TailwindCSS
 - **Chrome APIs:** Manifest V3, Chrome Storage
 - **AI & Tools:** Cohere API (v2), Google TTS, OpenCV, PyTesseract, FFmpeg, PyQt5
