@@ -353,6 +353,25 @@ function handleSpeechCommand(command) {
 
 // Apply accessibility profile
 function applyProfile(profileName, settings) {
+  // Default settings to reset to
+  const defaultSettings = {
+    fontFamily: '',
+    fontSize: 16,
+    letterSpacing: 0,
+    lineHeight: 1.4,
+    wordSpacing: 0,
+    cbType: '',
+    contrast: 100,
+    brightness: 100,
+    bgColor: '#ffffff',
+    textColor: '#000000',
+    hideImages: false,
+    highlightLinks: false,
+    bigCursor: false,
+    pauseAnimations: false,
+    simplifyLayout: false
+  };
+
   const profiles = {
     dyslexia: {
       fontFamily: 'OpenDyslexic',
@@ -396,6 +415,9 @@ function applyProfile(profileName, settings) {
 
   const profile = profiles[profileName];
   if (profile) {
+    // First reset all settings to defaults
+    Object.assign(settings, defaultSettings);
+    // Then apply the specific profile settings
     Object.assign(settings, profile);
     showNotification(`Applied ${profileName} accessibility profile`, '#4CAF50');
   }

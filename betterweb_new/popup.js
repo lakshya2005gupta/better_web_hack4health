@@ -21,6 +21,7 @@ const defaultSettings = {
   highlightLinks: false,
   bigCursor: false,
   pauseAnimations: false,
+  simplifyLayout: false,
   
   // Element-specific customizations
   customElements: {}
@@ -54,11 +55,13 @@ const accessibilityProfiles = {
     letterSpacing: 1,
     bigCursor: true,
     pauseAnimations: true,
+    simplifyLayout: true,
     highlightLinks: true
   },
   cognitive: {
     fontSize: 18,
     lineHeight: 1.8,
+    simplifyLayout: true,
     pauseAnimations: true,
     hideImages: true,
     bgColor: '#f0f8ff',
@@ -95,6 +98,7 @@ function loadSettings() {
     document.getElementById('highlightLinks').checked = data.highlightLinks || false;
     document.getElementById('bigCursor').checked = data.bigCursor || false;
     document.getElementById('pauseAnimations').checked = data.pauseAnimations || false;
+    document.getElementById('simplifyLayout').checked = data.simplifyLayout || false;
     
     updateDisplayValues();
   });
@@ -177,7 +181,19 @@ function applyProfile(profileName) {
   const profile = accessibilityProfiles[profileName];
   if (!profile) return;
   
-  // Apply profile settings to UI
+  // First, reset all settings to defaults to avoid carrying over previous profile settings
+  Object.keys(defaultSettings).forEach(key => {
+    const element = document.getElementById(key);
+    if (element) {
+      if (element.type === 'checkbox') {
+        element.checked = defaultSettings[key];
+      } else {
+        element.value = defaultSettings[key];
+      }
+    }
+  });
+  
+  // Then apply the specific profile settings
   Object.keys(profile).forEach(key => {
     const element = document.getElementById(key);
     if (element) {
@@ -297,7 +313,8 @@ function getCurrentSettings() {
     hideImages: document.getElementById('hideImages').checked,
     highlightLinks: document.getElementById('highlightLinks').checked,
     bigCursor: document.getElementById('bigCursor').checked,
-    pauseAnimations: document.getElementById('pauseAnimations').checked
+    pauseAnimations: document.getElementById('pauseAnimations').checked,
+    simplifyLayout: document.getElementById('simplifyLayout').checked
   };
 }
 
