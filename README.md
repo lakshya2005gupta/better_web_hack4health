@@ -1,6 +1,5 @@
-
+BetterWeb – Adaptation Made Easy
 A powerful Chrome extension designed to make the internet more accessible for users with ADHD, dyslexia, sensory sensitivities, visual impairments, and other cognitive conditions.
-
 
 ##  Tagline
 **Adaptation Made Easy.** Personalize the web in real time with AI-powered accessibility.
